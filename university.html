@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Service</title>
+    <link rel="stylesheet" href="university.css">
+</head>
+<body>
+    <header>
+        <h1>PostMan API Form</h1>
+    </header>
+    <main>
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h2>API Use Instructions:</h2>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <dl>
+                        <dt>Request method for retrieving information on all departments</dt>
+                        <dd>GET Method</dd>
+                        <dt>Resource for retrieving information on all departments</dt>
+                        <dd>/department</dd>
+                        <dt>Request method for retrieving information on all academics of department {departmentId}</dt>
+                        <dd>GET Method</dd>
+                        <dt>Resource for retrieving information on all academics of department {departmentId}</dt>
+                        <dd>/department/{department id}</dd>
+                        <dt>Request method for retrieving information on academic {academicId} of department {departmentId}</dt>
+                        <dd>GET Method</dd>
+                        <dt>Resource for retrieving information on academic {academicId} of department {departmentId}</dt>
+                        <dd>/department{department id}/academics/{academic id}</dd>
+                        <dt>Request method for adding an academic to department {departmentId}</dt>
+                        <dd>POST Method</dd>
+                        <dt>Resource for adding an academic to department {departmentId}</dt>
+                        <dd>/department/{department id}</dd>
+                        <dt>Sample request body for adding an academic to department {departmentId}</dt>
+                        <dd>{"surname": "Sanket","givenName": "Churi","title": "Mr","email": "Sanket@gmail.com"}</dd>
+                        <dt>Request method for updating information on academic {academicId} at department {departmentId}</dt>
+                        <dd>UPDATE Method</dd>
+                        <dt>Resource for updating information on academic {academicId} at department {departmentId}</dt>
+                        <dd>/department/{department id}/academics/{academic id}</dd>
+                        <dt>Sample request body for updating information on academic {academicId} at department {departmentId}</dt>
+                        <dd>{"surname": "Sanket","givenName": "Churi"}</dd>
+                        <dt>Request method for deleting an academic {academicId} at department {departmentId}</dt>
+                        <dd>DELETE Method</dd>
+                        <dt>Resource for deleting academic {academicId} at department {departmentId}</dt>
+                        <dd>/department{department id}/academics/{academic id}</dd>
+                    </dl>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2>Send API Request:</h2>
+                    <form id="apiRequestForm" name="apiRequestForm">
+                        <label for="requestType">Select request Type</label> <br>
+                        <select name="requestType" id="requestType">
+                            <option value="GET">GET</option>
+                            <option value="POST">POST</option>
+                            <option value="PUT">UPDATE</option>
+                            <option value="DELETE">DELETE</option>
+                        </select> <br>
+                        <label id="apiPath">Enter the API</label> <br>
+                        <input type="text" name="apiPath" style="width: 150ch;"><br>
+                        <label id="data">Enter JSON Data</label> <br>
+                        <textarea name="data" rows="5" style="width: 150ch; height: 8em;"></textarea> <br>
+                        <button type="button" onclick="makeRequest()" id="button">Send Request</button>
+                    </form>
+                </td>
+                <td>
+                    <h2>Response:</h2>
+                    <h3>HTTP Status Code:</h3>
+                    <p id="statusCode"></p>
+                    <h3>HTTP Response Body:</h3>
+                    <p id="responseBody" style="height: 200px;overflow-y: auto;padding: 10px;"></p>
+                    <button type="button" onclick="resetOutput()">Clear Output</button>
+                </td>
+            </tr>
+        </table>
+    </main>
+    <script src="university.js" defer></script>
+</body>
+</html>
